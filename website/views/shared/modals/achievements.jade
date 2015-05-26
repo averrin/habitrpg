@@ -15,6 +15,23 @@ script(id='modals/achievements/ultimateGear.html', type='text/ng-template')
   .modal-body
     .achievement.achievement-armor
     =env.t('gearAchievement')
+    table
+      tr
+        td(ng-if='::user.achievements.ultimateGearSets.healer')
+          .achievement-ultimate-healer
+          =env.t('healer')
+        td(ng-if='::user.achievements.ultimateGearSets.wizard')
+          .achievement-ultimate-mage
+          =env.t('mage')
+        td(ng-if='::user.achievements.ultimateGearSets.rogue')
+          .achievement-ultimate-rogue
+          =env.t('rogue')
+        td(ng-if='::user.achievements.ultimateGearSets.warrior')
+          .achievement-ultimate-warrior
+          =env.t('warrior')
+    p(ng-if='!(user.achievements.ultimateGearSets.healer && user.achievements.ultimateGearSets.wizard && user.achievements.ultimateGearSets.rogue && user.achievements.ultimateGearSets.warrior)')=env.t('moreGearAchievements')
+    br
+    p=env.t("armoireUnlocked")
   .modal-footer
     button.btn.btn-default(ng-click='$close()')=env.t('ok')
 
